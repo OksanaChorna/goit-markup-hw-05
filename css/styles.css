@@ -96,11 +96,11 @@ img {
   padding-bottom: 32px;
 }
 
-.active {
+.current {
   color: var(--accent-color);
 }
 
-.active::after {
+.current::after {
   position: absolute;
   display: block;
   content: '';
@@ -692,6 +692,9 @@ img {
   padding-bottom: 94px;
 }
 
+.portfolio-items-img {
+  /* position: relative; */
+}
 /* .portfolio-content {
   width: 370px;
   height: 110px;
@@ -701,6 +704,7 @@ img {
   border-left: 1px solid #eeeeee;
   box-sizing: border-box;
   padding: 20px 24px;
+  opacity: 0;
 }
 
 ..portfolio-items-content:hover::before {

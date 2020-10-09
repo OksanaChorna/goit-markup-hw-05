@@ -764,6 +764,9 @@ img {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -772,11 +775,13 @@ img {
   visibility: hidden;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 528px;
   height: 581px;
 
@@ -784,12 +789,21 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
-  position: absolute;
+  /* position: absolute;
   top: 8px;
-  right: 8px;
+  right: 8px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-right: 8px;
+  margin-left: auto;
 
   width: 30px;
   height: 30px;
@@ -797,12 +811,27 @@ img {
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  background-image: url(../images/close-black.svg);
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  cursor: pointer;
 }
 
-.modal-close-svg {
-  display: flex;
+.modal-close:hover,
+.modal-close:focus {
+  border: 1px solid #2196f3;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* .modal-close-svg {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 18px;
   height: 18px;
-}
+  background-image: url('./images/close-black.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+} */
